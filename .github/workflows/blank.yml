@@ -34,3 +34,36 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+  build-app:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo application build successfull
+          
+  deploy-to-dev:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo deployed metrics site to dev environment
+      - run: echo deployed tableau sync service to dev environment
+      - run: echo deployed double click extract service to dev environment
+      - run: echo deployed extract control service to dev environment
+          
+  deploy-to-stage:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo deployed metrics site to staging environment
+      - run: echo deployed tableau sync service to staging environment
+      - run: echo deployed double click extract service to staging environment
+      - run: echo deployed extract control service to staging environment
+          
+  deploy-to-prod:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo deployed metrics site to prod environment
+      - run: echo deployed tableau sync service to prod environment
+      - run: echo deployed double click extract service to prod environment
+      - run: echo deployed extract control service to prod environment
