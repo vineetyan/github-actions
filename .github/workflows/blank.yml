@@ -25,6 +25,7 @@ jobs:
   deploy-to-dev:
     runs-on: ubuntu-latest
     needs: [build]
+    environment: dev
     steps:
       - run: echo deployed metrics site to dev environment
       - run: echo deployed tableau sync service to dev environment
@@ -34,6 +35,7 @@ jobs:
   deploy-to-stage:
     runs-on: ubuntu-latest
     needs: [deploy-to-dev]
+    environment: staging
     steps:
       - run: echo deployed metrics site to staging environment
       - run: echo deployed tableau sync service to staging environment
@@ -43,6 +45,7 @@ jobs:
   deploy-to-prod:
     runs-on: ubuntu-latest
     needs: [deploy-to-stage]
+    environment: production
     steps:
       - run: echo deployed metrics site to prod environment
       - run: echo deployed tableau sync service to prod environment
