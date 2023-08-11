@@ -42,6 +42,16 @@ jobs:
       - run: echo deployed double click extract service to staging environment
       - run: echo deployed extract control service to staging environment
           
+  deploy-2-to-stage:
+    runs-on: ubuntu-latest
+    needs: [deploy-to-dev]
+    environment: staging
+    steps:
+      - run: echo deployed metrics site to staging environment
+      - run: echo deployed tableau sync service to staging environment
+      - run: echo deployed double click extract service to staging environment
+      - run: echo deployed extract control service to staging environment
+          
   deploy-to-prod:
     runs-on: ubuntu-latest
     needs: [deploy-to-stage]
