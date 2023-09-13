@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - run: echo application build successfull
-      - run: echo ${{ env.GITHUB_REF }}
+      - run: echo "${GITHUB_REF}"
           
   deploy-to-dev:
     runs-on: ubuntu-latest
