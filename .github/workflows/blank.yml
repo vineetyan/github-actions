@@ -6,9 +6,9 @@ name: CICD Pipeline
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "dfg" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "dfv" ]
+    branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -16,6 +16,17 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
+  run-unit-tests:
+    runs-on: ubuntu-latest
+    needs: build
+    container:
+      image: mcr.microsoft.com/dotnet/sdk:6.0
+    timeout-minutes: 30  
+
+    steps:
+    - name: Checkout application code
+      uses: actions/checkout@v3
+  
   build:
     runs-on: ubuntu-latest
 
