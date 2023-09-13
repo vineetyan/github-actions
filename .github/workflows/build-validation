@@ -1,12 +1,11 @@
 name: build validation
 
 on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches:
-      - 'main'
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - 'main'
+    branches: [ "main" ]
 
 env:
   DOTNET_VERSION: '6.0.401' # The .NET SDK version to use
