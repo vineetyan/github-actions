@@ -20,8 +20,12 @@ jobs:
   # This workflow contains a single job called "build"
 
   publish-coverage-report:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo ::set-output name=action_fruit::strawberry
+      id: testt
     uses: ./.github/workflows/build-validation.yml
-    with:
+     with:
       image_name: "test"
      
   run-unit-tests:
