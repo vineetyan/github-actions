@@ -13,6 +13,8 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  IMAGE_NAME: 'inputfromenv'
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -20,7 +22,7 @@ jobs:
   publish-coverage-report:
     uses: ./.github/workflows/build-validation.yml
     with:
-      image_name: inputvariablename
+      image_name: ${{env.IMAGE_NAME}}
      
   run-unit-tests:
     runs-on: ubuntu-latest
