@@ -22,7 +22,7 @@ jobs:
   publish-coverage-report:
     uses: ./.github/workflows/build-validation.yml
     with:
-      image_name: $IMAGE_NAME
+      image_name: ${IMAGE_NAME}
      
   run-unit-tests:
     runs-on: ubuntu-latest
