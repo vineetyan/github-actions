@@ -16,6 +16,13 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
+
+  publish-coverage-report:
+    uses: ./.github/workflows/build-validation.yml
+    with:
+      deploy_env: 'reports_site'
+      image_name: inputvariablename
+     
   run-unit-tests:
     runs-on: ubuntu-latest
     needs: build
