@@ -20,7 +20,6 @@ jobs:
   publish-coverage-report:
     uses: ./.github/workflows/build-validation.yml
     with:
-      deploy_env: 'reports_site'
       image_name: inputvariablename
      
   run-unit-tests:
