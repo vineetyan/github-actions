@@ -1,0 +1,21 @@
+name: build validation
+
+on:
+  workflow_call:
+    inputs:
+      image_name:
+        description: 'Docker image name'
+        required: true
+        type: string
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/dotnet/sdk:6.0
+    timeout-minutes: 30  
+
+    steps:
+    - name: Checkout application code
+      run: echo ${{inputs.image_name}}
