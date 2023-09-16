@@ -21,9 +21,8 @@ jobs:
 
   publish-coverage-report:
     uses: ./.github/workflows/build-validation.yml
-    if: ${{ env.IMAGE_NAME == 'inputfromenv' }}
     with:
-      image_name: "${env.IMAGE_NAME}"
+      image_name: "test"
      
   run-unit-tests:
     runs-on: ubuntu-latest
@@ -34,6 +33,7 @@ jobs:
 
     steps:
     - name: Checkout application code
+      if: ${{ env.IMAGE_NAME == 'inputfromenv' }}
       uses: actions/checkout@v3
   
   build:
